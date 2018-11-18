@@ -14,7 +14,16 @@ public class CharacterKeyboardControl : CharacterBaseControl
 	void Update ()
   {
     UpdateDirection();
+    UpdateAction();
 
+  }
+
+  void UpdateAction()
+  {
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+      OnActionPressed();
+    }
   }
 
   void UpdateDirection()

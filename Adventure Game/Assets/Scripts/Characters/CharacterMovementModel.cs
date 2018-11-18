@@ -8,31 +8,35 @@ public class CharacterMovementModel : MonoBehaviour
 
   private Vector3 m_MovementDirection;
 
-  // Use this for initialization
-  void Start()
-  {
+  Rigidbody2D m_Body;
 
+  // Use this for initialization
+  void Awake()
+  {
+    m_Body = GetComponent<Rigidbody2D>();
+  }
+
+  private void Start()
+  {
+    //Set the player to start lock down.
+    SetDirection(new Vector2(0, -1));
   }
 
   // Update is called once per frame
-  void Update()
+  void FixedUpdate()
   {
     UpdateMovement();
-
   }
 
   void UpdateMovement()
   {
-    if (m_MovementDirection == Vector3.zero)
+    if (m_MovementDirection != Vector3.zero)
     {
-      return;
+      //Normalize only works if it has motion, so not zero. Used to move as fast on diagonal as up, down left and right.
+      m_MovementDirection.Normalize();
     }
 
-    m_MovementDirection.Normalize();
-
-    transform.position += m_MovementDirection * Speed * Time.deltaTime;
-
-
+    m_Body.velocity = m_MovementDirection * Speed;
   }
 
   public void SetDirection(Vector2 direction)
