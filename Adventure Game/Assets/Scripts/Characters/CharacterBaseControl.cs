@@ -10,6 +10,7 @@ public class CharacterBaseControl : MonoBehaviour {
   private void Awake()
   {
     m_MovementModel = GetComponent<CharacterMovementModel>();
+    m_InteractionModel = GetComponent<CharacterInteractionModel>();
   }
 
   protected void SetDirection(Vector2 direction)
@@ -28,6 +29,8 @@ public class CharacterBaseControl : MonoBehaviour {
     {
       return;
     }
+
+    m_InteractionModel.OnInteract();
   }
 
 }
