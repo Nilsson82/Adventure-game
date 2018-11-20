@@ -4,40 +4,40 @@ using UnityEngine;
 
 public class CharacterMovementView : MonoBehaviour {
 
-  public Animator Animator;
+    public Animator Animator;
 
-  private CharacterMovementModel m_MovementModel;
+    private CharacterMovementModel m_MovementModel;
 
 	// Use this for initialization
-	void Awake ()
-  {
-    m_MovementModel = GetComponent<CharacterMovementModel>();
-
-    if (Animator == null)
+    void Awake ()
     {
-      Debug.LogError("Character Animator not setup!");
-      enabled = false;
+        m_MovementModel = GetComponent<CharacterMovementModel>();
+
+        if (Animator == null)
+        {
+            Debug.LogError("Character Animator not setup!");
+            enabled = false;
+        }
     }
-	}
 	
-	// Update is called once per frame
-	void Update ()
-  {
-    UpdateDirection();
-
-  }
-
-  void UpdateDirection()
-  {
-    Vector3 direction = m_MovementModel.GetDirection();
-
-    if(direction != Vector3.zero)
+    // Update is called once per frame
+    public void Update ()
     {
-      Animator.SetFloat("DirectionX", direction.x);
-      Animator.SetFloat("DirectionY", direction.y);
+        UpdateDirection();
+
     }
 
-    Animator.SetBool("IsMoving", m_MovementModel.IsMoving());
-  }
+    void UpdateDirection()
+    {
+        Vector3 direction = m_MovementModel.GetDirection();
+
+        if(direction != Vector3.zero)
+        {
+            Animator.SetFloat("DirectionX", direction.x);
+            Animator.SetFloat("DirectionY", direction.y);
+        }
+
+        Animator.SetBool("IsMoving", m_MovementModel.IsMoving());
+    }
 
 }

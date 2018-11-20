@@ -4,33 +4,33 @@ using UnityEngine;
 
 public class CharacterBaseControl : MonoBehaviour {
 
-  protected CharacterMovementModel m_MovementModel;
-  protected CharacterInteractionModel m_InteractionModel;
+    protected CharacterMovementModel m_MovementModel;
+    protected CharacterInteractionModel m_InteractionModel;
 
-  private void Awake()
-  {
-    m_MovementModel = GetComponent<CharacterMovementModel>();
-    m_InteractionModel = GetComponent<CharacterInteractionModel>();
-  }
-
-  protected void SetDirection(Vector2 direction)
-  {
-    if (m_MovementModel == null)
+    private void Awake()
     {
-      return;
+        m_MovementModel = GetComponent<CharacterMovementModel>();
+        m_InteractionModel = GetComponent<CharacterInteractionModel>();
     }
 
-    m_MovementModel.SetDirection(direction);
-  }
-
-  protected void OnActionPressed()
-  {
-    if(m_InteractionModel == null)
+    protected void SetDirection(Vector2 direction)
     {
-      return;
+        if (m_MovementModel == null)
+        {
+            return;
+        }
+
+        m_MovementModel.SetDirection(direction);
     }
 
-    m_InteractionModel.OnInteract();
-  }
+    protected void OnActionPressed()
+    {
+        if(m_InteractionModel == null)
+        {
+            return;
+        }
+
+        m_InteractionModel.OnInteract();
+    }
 
 }
