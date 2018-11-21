@@ -1875,6 +1875,7 @@ GameObject:
   - component: {fileID: 1164295879}
   - component: {fileID: 1164295880}
   - component: {fileID: 1164295884}
+  - component: {fileID: 1164295886}
   - component: {fileID: 1164295882}
   - component: {fileID: 1164295883}
   m_Layer: 0
@@ -2004,6 +2005,18 @@ MonoBehaviour:
   Movement: {fileID: 1164295881}
   Interaction: {fileID: 1164295884}
   MovementView: {fileID: 1164295880}
+  Inventory: {fileID: 1164295886}
+--- !u!114 &1164295886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1164295877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ced93d825c8e594892f49b5bb322d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1190999066 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4653815722891394, guid: 05a4ca42a9629f64ea4e36cb887e1882,
@@ -2692,8 +2705,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2136981623
-  m_SortingLayer: 1
+  m_SortingLayerID: 525565751
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: abe99282f30ee4648b238cceacd3a081, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3305,6 +3318,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OpenChestSprite: {fileID: 0}
   HideRendererWhenOpened: 0
+  ItemInChest: 1000
+  Amount: 1
 --- !u!61 &1954292044
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3399,6 +3414,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OpenChestSprite: {fileID: 21300000, guid: 23b81376543abc440adefa59a578a870, type: 3}
   HideRendererWhenOpened: 0
+  ItemInChest: 2000
+  Amount: 1
 --- !u!4 &2003627735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4653815722891394, guid: 05a4ca42a9629f64ea4e36cb887e1882,
