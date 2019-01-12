@@ -12,6 +12,7 @@ public class CharacterMovementModel : MonoBehaviour
     Rigidbody2D m_Body;
 
     private bool m_IsFrozen;
+    private bool m_IsAttacking;
 
     // Use this for initialization
     void Awake()
@@ -85,4 +86,31 @@ public class CharacterMovementModel : MonoBehaviour
         }
         return m_MovementDirection != Vector3.zero;
     }
+
+    public bool CanAttack()
+    {
+        if(m_IsAttacking == true)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public void DoAttack()
+    {
+  
+    }
+
+    public void OnAttackStarted()
+    {
+        m_IsAttacking = true;
+        Debug.Log("OnAttackStarted");
+    }
+
+    public void OnAttackFinished()
+    {
+        m_IsAttacking = false;
+        Debug.Log("OnAttackFinished");
+    }
+
 }

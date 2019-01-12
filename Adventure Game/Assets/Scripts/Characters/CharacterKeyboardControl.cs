@@ -10,13 +10,22 @@ public class CharacterKeyboardControl : CharacterBaseControl
     {
         UpdateDirection();
         UpdateAction();
+        UpdateAttack();
     }
 
     void UpdateAction()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             OnActionPressed();
+        }
+    }
+
+    void UpdateAttack()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OnAttackPressed();
         }
     }
 
